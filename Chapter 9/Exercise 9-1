@@ -1,0 +1,99 @@
+package objects;
+
+public class Exercise_9_1 {
+
+	public static void main(String[] args) {
+
+	
+
+		
+
+		Rectangle rectangle1 = new Rectangle(40, 4);
+
+		Rectangle rectangle2 = new Rectangle(35.9, 3.5);
+
+		
+
+		System.out.println("The width: " + rectangle1.width +" the height: "+ rectangle1.height +"area of the rectangle: "
+
+		+rectangle1.getArea() + " and the permiter: " +rectangle1.getPerimeter());
+
+		
+
+		System.out.println("The width: " + rectangle2.width +" the height: "+ rectangle2.height +"area of the rectangle: "
+
+				+rectangle2.getArea() + " and the permiter: " +rectangle2.getPerimeter());
+
+		
+
+	}
+
+}
+
+		class Rectangle{
+
+		
+
+		double height;			//Data fields
+
+		double width;
+
+	
+
+		Rectangle(){
+
+		 height = 1;			//Constructors
+
+		 width = 1;
+
+	}
+
+		Rectangle(double newHeight, double newWidth){	//Constructors
+
+			
+
+			height = newHeight;
+
+			width = newWidth;
+
+		}
+
+		double getArea() {
+													//Methods
+			return (width * height);
+
+		}
+
+		
+
+		double getPerimeter() {
+
+			return (width * 2) + (height * 2);
+
+		}											//Methods
+
+		
+
+		void setHeight(double newHeight) {
+													//Methods
+			height = newHeight;
+
+		}
+
+		void setWidth(double newWidth) {
+													//Methods
+			width = newWidth;
+
+		}
+
+	
+
+
+
+		
+
+		
+
+	
+
+	}
