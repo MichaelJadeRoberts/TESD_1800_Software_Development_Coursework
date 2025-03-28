@@ -1,0 +1,125 @@
+/*(The MyInteger class) Design a class named MyInteger. The class contains:
+
+An int data field named value that stores the int value represented by this object. X
+
+A constructor that creates a MyInteger object for the specified int value.	X
+
+A non-static getter method that returns the int value.	X
+
+The non-static methods isEven(), isOdd(), and isPrime() that return true if the value in this object is even, odd, or prime, respectively.	X
+
+The static methods isEven(int), isOdd(int), and isPrime(int) that return true if the specified value is even, odd, or prime, respectively.	X
+
+The static methods isEven(MyInteger), isOdd(MyInteger), and isPrime(MyInteger) that return true if the specified value is even, odd, or prime, respectively.	X
+
+The  non-static methods equals(int) and equals(MyInteger) that return true if the value in this object is equal to the specified value. X
+
+A static method parseInt(char[]) that converts an array of numeric characters to an int value.
+
+A static method parseInt(String) that converts a string into an int value.*/
+
+
+public class Exercise_10_3 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class MyInteger{
+	
+int value;				//An int data field named value that stores the int value represented by this object.
+
+	MyInteger(){
+		value = 0;		//A constructor that creates a MyInteger object for the specified int value.
+	}	
+	MyInteger(int value){
+		this.value = value;
+		
+	}	
+	int getValue() {
+		return value;		//A non-static getter method that returns the int value.
+	}
+	void setValue(int newValue) {
+		value = newValue;
+	}
+	boolean isEven() {									 //isEven()
+		if (value % 2 == 0) {							//		  \\
+			return true;				  			   //		   \\
+		}											  //			\\ 
+		return false;								 //				 \\
+	}												//				  \\
+	boolean isOdd() {		//The non-static methods                   isOdd() 
+		if (value % 2 != 0) {												 //
+			return true;													//
+		}																   //
+		return false;													  //
+	}																	 //
+	boolean isPrime() {													//isPrime() that return true if the value in this object is even, odd, or prime, respectively.
+		if (value < 2) {
+			return false;
+		}
+		for(int i = 2; i <= Math.sqrt(value); i++) {
+			if(value % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	static boolean isEven(int value) {							 //isEven()
+		if (value % 2 == 0) {									//		  \\
+			return true;									   //		   \\
+		}													  //			\\ 
+		return false;										 //				 \\
+	}														//				  \\
+	static boolean isOdd(int value) {	//The static methods                   isOdd() 
+		if (value % 2 != 0) {														 //
+			return true;															//
+		}																		   //
+		return false;															  //
+	}																			 //
+	static boolean isPrime(int value) {											//isPrime() that return true if the value in this object is even, odd, or prime, respectively.
+		if (value < 2) {
+			return false;
+		}
+		for(int i = 2; i <= Math.sqrt(value); i++) {
+			if(value % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	static boolean isEven(MyInteger value) {						 //isEven(MyInterger)
+		if (value.value % 2 == 0) {									//		  \\
+			return true;										   //		   \\
+		}														  //			\\ 
+		return false;											 //				 \\
+	}															//				  \\
+	static boolean isOdd(MyInteger value) {//The static methods                   isOdd(MyInteger) 
+		if (value.value % 2 != 0) {													 //
+			return true;															//
+		}																		   //
+		return false;															  //
+	}																			 //
+	static boolean isPrime(MyInteger value) {									//isPrime(MyInteger) that return true if the value in this object is even, odd, or prime, respectively.
+		if (value.value < 2) {
+			return false;
+		}
+		for(int i = 2; i <= Math.sqrt(value.value); i++) {
+			if(value.value % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}					
+	boolean equals(int value) {		//The  non-static methods equals(int) and equals(MyInteger) that return true if the value in this object is equal to the specified value.
+		
+		return this.value == value;
+	}
+	boolean equals(MyInteger value) {
+		
+		return this.value == value.getValue();
+	}
+	int parseInt(char[]) {
+		return 
+	}
+}
