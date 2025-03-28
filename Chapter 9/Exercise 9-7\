@@ -1,0 +1,70 @@
+package objects;
+
+import java.util.Date;
+public class Exercise_9_7 {
+	public static void main(String[] args) {
+		
+		Account account1= new Account(1122, 20000, 4.5, new java.util.Date());
+		account1.withdraw();
+		account1.deposit();
+		System.out.println("After your withdrawl and deposit, you balalnce is $" + account1.getBalance() + ", wihh the monthly interest of $"+account1.getMonthlyInterest()+", "
+				+ "and the date the account was created "+account1.getDateCreated());
+	}
+}
+class Account{
+	
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private Date dateCreated;
+	
+Account(){
+	id = 0;
+	balance = 0;
+	annualInterestRate = 0;
+}
+
+Account(int newId, double newBalance, double newAnnualInterestRate, Date newDateCreated){
+	id = newId;
+	balance = newBalance;
+	annualInterestRate = newAnnualInterestRate;
+	dateCreated = newDateCreated;
+}
+int getId(){//accessor and mutator methods for id, balance, and annualInterestRate
+	return id;
+}
+void setId(int newId) {
+	id = newId;
+}
+double getBalance() {
+	return balance;
+}
+void setBalance(double newBalance) {
+	balance = newBalance;
+}
+double getAnnualInterestRate() {
+	return annualInterestRate;
+}
+void setAnnualInterestRate(double newAnnualInterestRate) {
+	annualInterestRate = newAnnualInterestRate;
+}
+Date getDateCreated(){//accessor method for date created
+	java.util.Date dateCreated = new java.util.Date();
+	return dateCreated;
+}
+
+double getMonthlyInterestRate() {
+	return ((annualInterestRate / 100) /12); 
+}
+double getMonthlyInterest() {
+	return (balance * getMonthlyInterestRate());
+}
+void withdraw() {
+	 balance -= 2500;
+}
+void deposit() {
+	 balance += 3000;
+}
+
+	
+}
