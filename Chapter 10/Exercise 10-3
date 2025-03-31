@@ -50,7 +50,13 @@ public class Exercise_10_3 {
 					}else {
 						System.out.println("Testing static method isPrime(MyInteger); if " +myInteger1.getValue()+ " is prime, if this prints, it returned false");}
 			
-		}
+			//testing non-static methods equals(int) and equals(MyInteger) 
+			System.out.print("/rPlease enter another integer to test out non-static methods equals(int) and equals(MyInteger): ");
+			
+			MyInteger myInteger2 = new MyInteger (input.nextInt());
+			if ()
+			
+}
 }
 
 class MyInteger{
@@ -146,8 +152,11 @@ int value;				//An int data field named value that stores the int value represen
 	boolean equals(MyInteger value) {
 		
 		return this.value == value.getValue();
-	}
-	int parseInt(char[]) {
-		return 
+	}											//A static method parseInt(char[]) that converts an array of numeric characters to an int value.
+	static int parseInt(char[]value) {
+		return value.length;
+	}										//A static method parseInt(String) that converts a string into an int value.*/
+	static int parseInt(String value) {
+		return value.length();
 	}
 }
