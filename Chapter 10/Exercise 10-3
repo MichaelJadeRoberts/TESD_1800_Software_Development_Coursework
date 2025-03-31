@@ -1,28 +1,56 @@
-/*(The MyInteger class) Design a class named MyInteger. The class contains:
-
-An int data field named value that stores the int value represented by this object. X
-
-A constructor that creates a MyInteger object for the specified int value.	X
-
-A non-static getter method that returns the int value.	X
-
-The non-static methods isEven(), isOdd(), and isPrime() that return true if the value in this object is even, odd, or prime, respectively.	X
-
-The static methods isEven(int), isOdd(int), and isPrime(int) that return true if the specified value is even, odd, or prime, respectively.	X
-
-The static methods isEven(MyInteger), isOdd(MyInteger), and isPrime(MyInteger) that return true if the specified value is even, odd, or prime, respectively.	X
-
-The  non-static methods equals(int) and equals(MyInteger) that return true if the value in this object is equal to the specified value. X
-
-A static method parseInt(char[]) that converts an array of numeric characters to an int value.
-
-A static method parseInt(String) that converts a string into an int value.*/
-
+import java.util.Scanner;
 
 public class Exercise_10_3 {
 	public static void main(String[] args) {
 		
-	}
+		Scanner input = new Scanner(System.in);
+			System.out.print("Please enter an integer to test out the class made for exercise 10-3: ");
+		
+		MyInteger myInteger1 = new MyInteger (input.nextInt());
+		
+		//testing non-static methods isEven(), isOdd(), and isPrime()
+			if (myInteger1.isEven()) {
+				System.out.println("Testing non-static method isEven(); if " +myInteger1.getValue()+ " is even, if this prints, it returned true");
+					}else {
+						System.out.println("Testing non-static method isEven(); if " +myInteger1.getValue()+ " is even, if this prints, it returned false");}
+			if (myInteger1.isOdd()) {
+				System.out.println("Testing non-static method isOdd(); if " +myInteger1.getValue()+ " is odd, if this prints, it returned true");
+					}else {
+						System.out.println("Testing non-static method isOdd(); if " +myInteger1.getValue()+ " is odd, if this prints, it returned false");}
+			if (myInteger1.isPrime()) {
+				System.out.println("Testing non-static method isPrime(); if " +myInteger1.getValue()+ " is prime, if this prints, it returned true");
+					}else {
+						System.out.println("Testing non-static method isPrime(); if " +myInteger1.getValue()+ " is prime, if this prints, it returned false");}
+			
+		//testing The static methods isEven(int), isOdd(int), and isPrime(int)
+			if (MyInteger.isEven(myInteger1)) {
+				System.out.println("Testing static method isEven(int); if " +myInteger1.getValue()+ " is even, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isEven(int); if " +myInteger1.getValue()+ " is even, if this prints, it returned false");}
+			if (MyInteger.isOdd(myInteger1)) {
+				System.out.println("Testing static method isOdd(int); if " +myInteger1.getValue()+ " is odd, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isOdd(int); if " +myInteger1.getValue()+ " is odd, if this prints, it returned false");}
+			if (MyInteger.isPrime(myInteger1)) {
+				System.out.println("Testing static method isPrime(int); if " +myInteger1.getValue()+ " is prime, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isPrime(int); if " +myInteger1.getValue()+ " is prime, if this prints, it returned false");}
+			
+			//testing static methods isEven(MyInteger), isOdd(MyInteger), and isPrime(MyInteger)
+			if (MyInteger.isEven(myInteger1)) {
+				System.out.println("Testing static method isEven(MyInteger); if " +myInteger1.getValue()+ " is even, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isEven(MyInteger); if " +myInteger1.getValue()+ " is even, if this prints, it returned false");}		
+			if (MyInteger.isOdd(myInteger1)) {
+				System.out.println("Testing static method isOdd(MyInteger); if " +myInteger1.getValue()+ " is odd, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isOdd(MyInteger); if " +myInteger1.getValue()+ " is odd, if this prints, it returned false");}			
+			if (MyInteger.isPrime(myInteger1)) {
+				System.out.println("Testing static method isPrime(MyInteger); if " +myInteger1.getValue()+ " is prime, if this prints, it returned true");
+					}else {
+						System.out.println("Testing static method isPrime(MyInteger); if " +myInteger1.getValue()+ " is prime, if this prints, it returned false");}
+			
+		}
 }
 
 class MyInteger{
