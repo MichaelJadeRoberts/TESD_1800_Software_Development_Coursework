@@ -26,7 +26,7 @@ public static Boolean mainMenu(Account account) {
 	Scanner input = new Scanner(System.in);
 	int option;
 		do {
-			System.out.println(" Main menu" + "\r 1: check balance" + "\r 2: withdraw" + "\r 3: deposit" + "\r 4: exit");
+			System.out.println(" Main menu" + "\n 1: check balance" + "\n 2: withdraw" + "\n 3: deposit" + "\n 4: exit");
 			option = input.nextInt();
 				if (option < 1 || option > 4) {
 					System.out.print("Incorrect value.");
@@ -57,14 +57,14 @@ private static String accountEditor(int option, Account account) {
 				double withdrawAmount = input.nextDouble();
 					account.withdraw(withdrawAmount);
 					
-					edit = "\r";
+					edit = "";
 				break;
 		case 3:
 			System.out.println("Enter an amount to deposit: ");
 				double depositAmount = input.nextDouble();
 					account.deposit(depositAmount);
 					
-					edit = "\r";
+					edit = "";
 				break;
 	}
 	return edit;
