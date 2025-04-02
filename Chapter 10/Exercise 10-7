@@ -78,8 +78,6 @@ class Account{
 	private double annualInterestRate;
 	private Date dateCreated;
 	
-	
-	
 Account(){
 	id = 0;
 	balance = 0;
@@ -114,7 +112,6 @@ void setAnnualInterestRate(double newAnnualInterestRate) {
 Date getDateCreated(){
 	return dateCreated;
 }
-
 double getMonthlyInterestRate() {
 	return ((annualInterestRate / 100) /12); 
 }
@@ -129,6 +126,5 @@ void deposit(double amount) {
 	if (amount > 0) { 
 	balance += amount;}
 }
-
 	
 }
