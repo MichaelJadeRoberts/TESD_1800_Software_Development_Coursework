@@ -1,0 +1,134 @@
+import java.util.Scanner;
+import java.util.Date;
+
+public class Exercise_10_7 {
+	public static void main(String[] args) {
+		Account [] account = new Account[10];
+		for (int i = 0; i < 10; i++) {
+			account[i]= new Account(i, 100, 0, new java.util.Date());
+		}
+		
+		Scanner input = new Scanner(System.in);
+	while (true){
+		
+		System.out.print("Enter id 0-9: ");
+			int select = input.nextInt();
+				if (select >= 0 && select <= 9) { 
+					mainMenu(account[select]);
+				}else {
+					System.out.println("Incorrect value.");
+					continue;
+				}
+	}
+}
+
+public static Boolean mainMenu(Account account) {
+	Scanner input = new Scanner(System.in);
+	int option;
+		do {
+			System.out.println(" Main menu" + "\r 1: check balance" + "\r 2: withdraw" + "\r 3: deposit" + "\r 4: exit");
+			option = input.nextInt();
+				if (option < 1 || option > 4) {
+					System.out.print("Incorrect value.");
+					continue;
+				}else if (option != 4 ) {
+					System.out.println(accountEditor(option, account));
+					continue;
+				}
+		
+			}while (option != 4);
+	
+
+	return true;
+}
+
+private static String accountEditor(int option, Account account) {
+	
+	Scanner input = new Scanner(System.in);
+	String edit = "";
+	switch (option) {
+	
+		case 1:
+			edit =  "The balance is "+account.getBalance();
+			break;
+			
+		case 2:
+			System.out.println("Enter an amount to withdraw: ");
+				double withdrawAmount = input.nextDouble();
+					account.withdraw(withdrawAmount);
+					
+					edit = "\r";
+				break;
+		case 3:
+			System.out.println("Enter an amount to deposit: ");
+				double depositAmount = input.nextDouble();
+					account.deposit(depositAmount);
+					
+					edit = "\r";
+				break;
+	}
+	return edit;
+}
+}
+
+class Account{
+	
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private Date dateCreated;
+	
+	
+	
+Account(){
+	id = 0;
+	balance = 0;
+	annualInterestRate = 0;
+	dateCreated = new Date();
+}
+
+Account(int newId, double newBalance, double newAnnualInterestRate, Date newDateCreated){
+	id = newId;
+	balance = newBalance;
+	annualInterestRate = newAnnualInterestRate;
+	dateCreated = newDateCreated;
+}
+int getId(){
+	return id;
+}
+void setId(int newId) {
+	id = newId;
+}
+double getBalance() {
+	return balance;
+}
+void setBalance(double newBalance) {
+	balance = newBalance;
+}
+double getAnnualInterestRate() {
+	return annualInterestRate;
+}
+void setAnnualInterestRate(double newAnnualInterestRate) {
+	annualInterestRate = newAnnualInterestRate;
+}
+Date getDateCreated(){
+	return dateCreated;
+}
+
+double getMonthlyInterestRate() {
+	return ((annualInterestRate / 100) /12); 
+}
+double getMonthlyInterest() {
+	return (balance * getMonthlyInterestRate());
+}
+void withdraw(double amount) {
+	if (amount > 0 && amount <= balance) {
+	 balance -= amount;}
+}
+void deposit(double amount) {
+	if (amount > 0) { 
+	balance += amount;}
+}
+
+	
+}
