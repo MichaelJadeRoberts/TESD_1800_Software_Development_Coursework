@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+public class Exercise_11_1 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		double side1Length;
+		double side2Length;
+		double side3Length;
+		
+			System.out.println("Enter the length of each side of the triangle starting with side1: ");
+				side1Length = input.nextDouble();
+			System.out.println("side2: ");
+				side2Length = input.nextDouble();
+			System.out.println("side3: ");
+				side3Length = input.nextDouble();
+				
+				input.nextLine();
+				
+			System.out.println("Now enter the color of said triangle: ");
+				String triangleColor = input.nextLine();
+			
+			System.out.println("Now enter 'yes' if you want the triangle is filled: ");
+				String filledOption = input.nextLine();
+				boolean filled;
+					if (filledOption.equalsIgnoreCase("yes")){
+						filled = true; 
+					}else {
+						filled = false;
+					}
+					
+			Triangle Triangle = new Triangle(side1Length, side2Length, side3Length, triangleColor, filled);
+				System.out.println("The triangle " +Triangle.toString());	
+				System.out.println("The triangle area: " +Triangle.getArea());
+				System.out.println("The triangle perimeter: " +Triangle.getPerimeter());
+				System.out.println("The triangle color: " +Triangle.getColor());
+				System.out.println("The triangle created date: " +Triangle.dateCreated());
+				System.out.println("If the triangle is filled: " +Triangle.isFilled());
+	}
+}
+class GeometricObject {
+	private String color = "white";
+	
+	private boolean filled;
+	
+	private java.util.Date dateCreated;
+	
+	public GeometricObject() {
+		dateCreated = new java.util.Date();
+	}
+		public GeometricObject(String color, boolean filled) {
+		
+		this.color = color;
+		
+		this.filled = filled;
+		
+		dateCreated = new java.util.Date();
+	}
+			public String getColor() {
+		return color;
+	}
+			public void setColor(String color) {
+		this.color = color;
+	}
+			public boolean isFilled() {
+		return filled;
+	}
+			public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+			public java.util.Date dateCreated() {
+		return dateCreated;
+	}
+			public String toString() {
+		return " created on " +dateCreated+ " color: " +color+ " and filled: " +filled;
+	}
+}
+
+class Triangle extends GeometricObject {
+		private double side1;
+		private double side2;
+		private double side3;
+	
+	 Triangle() {
+		 	side1 = 1;
+			side2 = 1;
+			side3 = 1;
+	 	}
+	 	Triangle(double side1, double side2, double side3, String color, boolean filled){
+	 			this.side1 = side1;
+	 			this.side2 = side2;
+	 			this.side3 = side3;
+	 			setColor(color);
+	 			setFilled(filled);
+	 		}
+	 		public double getSide1() {
+	 			return side1;
+	 		}
+	 		public void setSide1(double side1) {
+	 			this.side1 = side1;
+	 		}
+	 		public double getSide2() {
+	 			return side2;
+	 		}
+	 		public void setSide2(double side2) {
+	 			this.side2 = side2;
+	 		}
+	 		public double getSide3() {
+	 			return side3;
+	 		}
+	 		public void setSide3(double side3) {
+	 			this.side3 = side3;
+	 		}
+	 
+	 		public double getArea() {
+	 			double s = ((side1 + side2 + side3)/2);
+	 			
+	 			return Math.sqrt(s*(s - side1)*(s - side2)*(s - side3));
+	 		}
+	 		public double getPerimeter() {
+	 			return side1 + side2 + side3;
+	 		}
+	 		public String toString() {
+	 			return "Triangle: side1 = " + side1 + " side2 = " + side2 + " side3 = " + side3;
+	 }
+	}
