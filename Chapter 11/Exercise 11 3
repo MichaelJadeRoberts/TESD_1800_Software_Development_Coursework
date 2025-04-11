@@ -1,0 +1,99 @@
+import java.util.Date;
+
+public class Exercise_11_3 {
+	
+	
+
+}
+
+class Account{
+	
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private Date dateCreated;
+	
+Account(){
+	id = 0;
+	balance = 0;
+	annualInterestRate = 0;
+	dateCreated = new Date();
+}
+
+Account(int newId, double newBalance, double newAnnualInterestRate, Date newDateCreated){
+	id = newId;
+	balance = newBalance;
+	annualInterestRate = newAnnualInterestRate;
+	dateCreated = newDateCreated;
+}
+int getId(){
+	return id;
+}
+void setId(int newId) {
+	id = newId;
+}
+double getBalance() {
+	return balance;
+}
+void setBalance(double newBalance) {
+	balance = newBalance;
+}
+double getAnnualInterestRate() {
+	return annualInterestRate;
+}
+void setAnnualInterestRate(double newAnnualInterestRate) {
+	annualInterestRate = newAnnualInterestRate;
+}
+Date getDateCreated(){
+	return dateCreated;
+}
+double getMonthlyInterestRate() {
+	return ((annualInterestRate / 100) /12); 
+}
+double getMonthlyInterest() {
+	return (balance * getMonthlyInterestRate());
+}
+void withdraw(double amount) {
+	if (amount > 0 && amount <= balance) {
+	 balance -= amount;}
+}
+void deposit(double amount) {
+	if (amount > 0) { 
+	balance += amount;}
+}
+}
+class Checking extends Account{
+	private double overDraftLimit;
+Checking(){
+	this.overDraftLimit = 0.0;
+}
+Checking(int id, double balance, double overDraftLimit, Date dateCreated){
+	super(id, balance, 0.0, dateCreated);
+	this.overDraftLimit = overDraftLimit;
+}
+void setOverDraftLimit(double overDraftLimit) {
+	this.overDraftLimit = overDraftLimit;
+}
+@Override
+void withdraw(double ammount) {
+	if (ammount > 0 && ammount <= (getBalance() + overDraftLimit));{
+		setBalance(getBalance() - ammount);
+	}
+}
+}
+
+class Savings extends Account{
+	
+Savings(){
+	super();
+}
+Savings(int id, double balance, double annualInterestRate, Date dateCreated){
+	super(id, balance, annualInterestRate, dateCreated);
+}
+@Override
+void withdraw(double ammount) {
+	if (ammount > 0 && ammount <= getBalance());{
+		setBalance(getBalance() - ammount);
+	}
+}
+}
