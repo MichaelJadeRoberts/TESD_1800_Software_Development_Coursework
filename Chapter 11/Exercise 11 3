@@ -11,8 +11,8 @@ public class Exercise_11_3 {
 				checking[i] = new Checking(i, 400.0, 200.0, new java.util.Date());
 				savings[i] = new Savings(i, 800.0, i * 0.02, new java.util.Date());		
 			}
-			boolean AccountEditing;
-		while (AccountEditing = true) {
+		
+		while (true) {
 		  Scanner input = new Scanner(System.in);
 		    System.out.println("1 for checking or 2 for savings?");	
 		    	int accountType = input.nextInt();
@@ -186,8 +186,10 @@ void setOverDraftLimit(double overDraftLimit) {
 }
 @Override
 void withdraw(double ammount) {
-	if (ammount > 0 && ammount <= (getBalance() + overDraftLimit));{
+	if (ammount > 0 && ammount <= (getBalance() + overDraftLimit)){
 		setBalance(getBalance() - ammount);
+	}else {
+		System.out.println("Error, went over withdraw limit");
 	}
 }
 }
@@ -202,8 +204,10 @@ Savings(int id, double balance, double annualInterestRate, Date dateCreated){
 }
 @Override
 void withdraw(double ammount) {
-	if (ammount > 0 && ammount <= getBalance());{
+	if (ammount > 0 && ammount <= getBalance()){
 		setBalance(getBalance() - ammount);
+	}else {
+		System.out.println("Error, went over withdraw limit");
 	}
 }
 }
