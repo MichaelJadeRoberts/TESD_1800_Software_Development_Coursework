@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Exercise_12_3 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+			int [] randomInt = new int[100];
+		
+				for (int i = 0; i < 99; i++) {
+					randomInt[i] = (int) (Math.random() * 10);
+		}
+		
+		System.out.println("Array has been created, please enter an index of the array and I will print the correspoding element value:");
+		
+	while (true) {	
+		
+		int indexSelect = input.nextInt();
+			input.nextLine();
+		
+			try {
+				System.out.println("Index: " +indexSelect+ "  Element Value: " +Index(indexSelect, randomInt));
+			}catch (Exception ex) {
+				System.out.println("Selection is out of bounds, please enter an index of 0-99");
+					continue;
+			}
+				System.out.println("Would you like another, yes or no?");
+					String again = input.nextLine();
+						if (again.equalsIgnoreCase("yes")) {
+							System.out.println("Enter an index of the array and I will print the correspoding element value:");
+								continue;
+							} 
+					System.out.println("Goodbye!");
+						System.exit(1);
+	}
+}
+
+
+public static int Index (int indexSelect, int[] randomInt) throws Exception {
+	
+	if (indexSelect < 0 && 99 < indexSelect) {
+		throw new Exception("Selection is out of bounds");
+	}
+	return randomInt[indexSelect];
+}
+
+}
