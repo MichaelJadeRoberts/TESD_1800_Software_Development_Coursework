@@ -1,0 +1,47 @@
+import java.util.*;
+import java.io.*;
+
+public class Exercise_12_5 {
+    public static void main(String args[]) {
+        // file thing
+        File f = new File("Exercise12_15.txt");
+        
+        // make file if its not there
+        if (!f.exists()) {
+            try {
+                PrintWriter p = new PrintWriter(f);
+                Random rand =
+
+ new Random();
+                for (int i = 0; i < 100; i++) {
+                    int num = rand.nextInt(100) + 1;
+                    p.print(num + " "); // write with space
+                }
+                p.close();
+            } catch (Exception e) {
+                System.out.println("file messed up: " + e);
+            }
+        }
+        
+       
+        ArrayList<Integer> nums = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(f);
+            while (scan.hasNextInt()) {
+                nums.add(scan.nextInt()); // add number
+            }
+            scan.close();
+        } catch (Exception e) {
+            System.out.println("read error: " + e);
+        }
+        
+       
+        Collections.sort(nums);
+        
+      
+        System.out.println("sorted numbers:");
+        for (int n : nums) {
+            System.out.print(n + " ");
+        }
+    }
+}
